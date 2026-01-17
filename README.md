@@ -44,7 +44,7 @@ Antes de executar os testes, é necessário ter instalado:
 - Node.js (versão 16 ou superior)
 - npm
 - k6 (para testes de carga)
-- Postman (para testes de API via Run)
+- Postman (para testes de API via interface)
 
 Verificar versões:
 
@@ -69,9 +69,9 @@ Instalar depêndencias:
 
 ## ▶️ Execução
 
-### Testes de API (Cypress)
+### Testes de API
 
-Os testes de API via newman estão localizados na pasta api.
+Os testes de API via newman (Postman CLI) estão localizados na pasta api.
 
 Executar:
   - npx newman run api/api_postman_collection.json -e api/api_postman_environment.json
