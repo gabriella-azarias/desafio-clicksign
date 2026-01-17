@@ -1,0 +1,30 @@
+name: Performance Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  performance_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install k6
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y k6
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run load tests
+        run: k6 run k6/load-test.js
+
+  
