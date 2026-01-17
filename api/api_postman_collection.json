@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "9b1039ca-5db8-444a-85c4-6555739e79dc",
+		"name": "Teste de API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14343546"
+	},
+	"item": [
+		{
+			"name": "Criar post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 201 - Post criado\", function () {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"const postSchema = JSON.parse(\r",
+							"  pm.collectionVariables.get(\"postSchema\")\r",
+							");\r",
+							"\r",
+							"pm.test(\"Schema do post criado é válido\", function () {\r",
+							"  pm.response.to.have.jsonSchema(postSchema);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Novo Post\",\r\n  \"body\": \"Este é o conteúdo do post.\",\r\n  \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const postSchema = JSON.parse(\r",
+							"  pm.collectionVariables.get(\"postSchema\")\r",
+							");\r",
+							"\r",
+							"const postsArraySchema = {\r",
+							"  type: \"array\",\r",
+							"  items: postSchema\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Retorna array de posts com schema válido\", function () {\r",
+							"  pm.response.to.have.jsonSchema(postsArraySchema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar post (completo)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const postSchema = JSON.parse(\r",
+							"  pm.collectionVariables.get(\"postSchema\")\r",
+							");\r",
+							"\r",
+							"pm.test(\"Retorna post atualizado com schema válido\", function () {\r",
+							"  pm.response.to.have.jsonSchema(postSchema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": 1,\r\n  \"id\": 1,\r\n  \"title\": \"Título atualizado via PUT\",\r\n  \"body\": \"Este é o novo conteúdo do post após PUT.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar post (parcial)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const postSchema = JSON.parse(\r",
+							"  pm.collectionVariables.get(\"postSchema\")\r",
+							");\r",
+							"\r",
+							"pm.test(\"Retorna post com schema válido após PATCH\", function () {\r",
+							"  pm.response.to.have.jsonSchema(postSchema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Título atualizado via PATCH\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Corpo da resposta é objeto vazio\", function () {\r",
+							"  const body = pm.response.json();\r",
+							"  pm.expect(body).to.be.an(\"object\");\r",
+							"  pm.expect(Object.keys(body).length).to.equal(0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{baseUrl}}/posts/1"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"pm.test(\"Tempo de resposta < 500ms\", function () {\r",
+					"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Response é JSON\", function () {\r",
+					"  pm.response.to.be.json;\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Header Content-Type é application/json\", function () {\r",
+					"  pm.expect(\r",
+					"    pm.response.headers.get(\"Content-Type\")\r",
+					"  ).to.include(\"application/json\");\r",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlasasa",
+			"value": ""
+		},
+		{
+			"key": "postSchema",
+			"value": ""
+		}
+	]
+}
