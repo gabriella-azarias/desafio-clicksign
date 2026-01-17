@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Run load tests
-        run: k6 run k6/load-test.js
+      - name: Run performance tests
+        run: k6 run k6/loadTestPosts.js
 
   
