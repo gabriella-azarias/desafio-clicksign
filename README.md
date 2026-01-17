@@ -71,10 +71,10 @@ Instalar depêndencias:
 
 ### Testes de API (Cypress)
 
-Os testes de API via Cypress estão localizados na pasta cypress/api.
+Os testes de API via newman estão localizados na pasta api.
 
 Executar:
-  - npx cypress run --spec cypress/api/api.spec.js
+  - npx newman run api/api_postman_collection.json -e api/api_postman_environment.json
 
 ---
 
