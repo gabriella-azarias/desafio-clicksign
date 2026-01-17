@@ -16,7 +16,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -28,7 +29,7 @@
 							"});\r",
 							"\r",
 							"const postSchema = JSON.parse(\r",
-							"  pm.collectionVariables.get(\"postSchema\")\r",
+							"  pm.environment.get(\"postSchema\")\r",
 							");\r",
 							"\r",
 							"pm.test(\"Schema do post criado é válido\", function () {\r",
@@ -36,7 +37,8 @@
 							"});"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -68,7 +70,7 @@
 							"});\r",
 							"\r",
 							"const postSchema = JSON.parse(\r",
-							"  pm.collectionVariables.get(\"postSchema\")\r",
+							"  pm.environment.get(\"postSchema\")\r",
 							");\r",
 							"\r",
 							"const postsArraySchema = {\r",
@@ -82,7 +84,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -92,7 +95,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -113,7 +117,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -125,7 +130,7 @@
 							"});\r",
 							"\r",
 							"const postSchema = JSON.parse(\r",
-							"  pm.collectionVariables.get(\"postSchema\")\r",
+							"  pm.environment.get(\"postSchema\")\r",
 							");\r",
 							"\r",
 							"pm.test(\"Retorna post atualizado com schema válido\", function () {\r",
@@ -134,7 +139,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -177,7 +183,7 @@
 							"});\r",
 							"\r",
 							"const postSchema = JSON.parse(\r",
-							"  pm.collectionVariables.get(\"postSchema\")\r",
+							"  pm.environment.get(\"postSchema\")\r",
 							");\r",
 							"\r",
 							"pm.test(\"Retorna post com schema válido após PATCH\", function () {\r",
@@ -217,7 +223,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -235,7 +242,8 @@
 							"});"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
