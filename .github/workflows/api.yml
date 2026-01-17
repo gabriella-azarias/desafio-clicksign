@@ -17,6 +17,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Execute collection
-        run: newman run ./api_postman_collection.json -e ./api_postman_environment.json
+        run: newman run api/api_postman_collection.json -e api/api_postman_environment.json
 
   
