@@ -11,13 +11,23 @@ on:
 jobs:
   e2e_authentication:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - run: npm i
-      - run: npx cypress run --env TAGS="@authentication"
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run E2E tests
+        run: npx cypress run --env TAGS="@authentication"
 
   e2e_my_account:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - run: npm i
