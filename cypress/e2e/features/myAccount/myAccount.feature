@@ -11,6 +11,8 @@ Funcionalidade: Gerenciar dados da conta
 
   Regra: Permitir a visualização dos dados da conta do usuário autenticado
   
+  @automatizado_e2e
+  @my_account
   @TC_005
   Cenário: Gerenciar dados da conta - Ao acessar a conta após login os dados do usuário são exibidos corretamente
     Quando acessa a seção "My Account"
@@ -22,6 +24,8 @@ Funcionalidade: Gerenciar dados da conta
 
   Regra: Permitir a atualização dos dados da conta do usuário autenticado
   
+  @automatizado_e2e
+  @my_account
   @TC_006
   Cenário: Gerenciar dados da conta - Ao atualizar as informações da conta os dados são salvos com sucesso
     Dado que acessa a seção "My Account"

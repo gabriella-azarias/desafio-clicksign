@@ -11,6 +11,7 @@ Contexto:
   Regra: Impedir o login quando usuário e senha não forem informados
   
   @automatizado_e2e
+  @authentication
   @TC_001
   Cenário: Autenticação - Ao tentar realizar login sem informar credenciais o acesso não é concedido
     Quando informa
@@ -23,6 +24,7 @@ Contexto:
   Regra: Impedir o login quando usuário ou senha não atendem ao tamanho mínimo
   
   @automatizado_e2e
+  @authentication
   @TC_002
   Cenário: Autenticação - Ao tentar realizar login com credenciais inválidas o acesso não é concedido
     Quando informa
@@ -35,6 +37,7 @@ Contexto:
   Regra: Permitir o login quando usuário e senha válidos forem informados
   
   @automatizado_e2e
+  @authentication
   @TC_003
   Cenário: Autenticação - Ao autenticar com credenciais válidas o acesso é concedido
     Quando informa
@@ -47,6 +50,7 @@ Contexto:
   Regra: Permitir o encerramento da sessão do usuário autenticado
   
   @automatizado_e2e
+  @authentication
   @TC_004
   Cenário: Autenticação - Ao realizar logout a sessão do usuário é encerrada com sucesso
     Dado que o usuário está autenticado
