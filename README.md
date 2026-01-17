@@ -96,8 +96,9 @@ Passos:
 ---
 
 ### Testes de Carga (k6)
-  - k6 run k6/load-test.js
+  - k6 run k6/loadTestPosts.js
 
 --- 
 
 ### Pipeline CI/CD
+A pipeline foi configurada para rodar manualmente (workflow_dispatch) e também com configuração para push/pull request na master.
